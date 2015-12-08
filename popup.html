@@ -1,0 +1,37 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+-->
+<html>
+  <head>
+    <title>Instant QR</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf8">
+    <style>
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+      }
+      #status {
+        text-align: center;
+        font-weight: bold;
+      }
+      #image-url {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="status"></div>
+    <img id="image-result" hidden>
+    <div id="image-url"></div>
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+     -->
+    <script src="popup.js"></script>
+  </body>
+</html>
