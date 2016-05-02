@@ -14,5 +14,5 @@ InstantQR - 产生当前标签页的 URL 的 QR 图.
 
 [Chrome商店](https://chrome.google.com/webstore/detail/instantqr/fjhhlfjdpnfmamhlnbgejlkbpopijjbn?utm_source=chrome-ntp-icon)
 
-[crx文件](https://github.com/mxui/InstantQR/blob/master/InstantQR.crx)
+[crx文件](https://github.com/mxui/InstantQR/blob/master/download/InstantQR.crx)
 
