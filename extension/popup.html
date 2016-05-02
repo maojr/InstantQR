@@ -21,11 +21,13 @@
         text-align: center;
       }
     </style>
+    <script type="text/javascript" src="qrcode.min.js"></script>
   </head>
   <body>
+    <div id="image-result">
+    <input id="text" type="text" style="width: 246px;"/>
+    </div>
     <div id="status"></div>
-    <img id="image-result" hidden>
-    <div id="image-url"></div>
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.

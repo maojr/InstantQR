@@ -46,10 +46,10 @@ function getCurrentTabUrl(callback) {
  * @param {function(string)} errorCallback - Called when the image is not found.
  *   The callback gets a string that describes the failure reason.
  */
-function getImageUrl(searchTerm, callback, errorCallback) {
-  var imageUrl = 'http://qr.liantu.com/api.php?text=' + searchTerm;
-  callback(imageUrl);
-}
+var qrcode = new QRCode(document.getElementById('image-result'), {
+  width : 250,
+  height: 250
+});
 
 function renderStatus(statusText) {
   document.getElementById('status').textContent = statusText;
@@ -57,44 +57,26 @@ function renderStatus(statusText) {
 
 document.addEventListener('DOMContentLoaded', function() {
   getCurrentTabUrl(function(url) {
-    //Network condition check
-    if (navigator.onLine == false) {
-      renderStatus("请检查联网状况");
-      return;
-    }
-
     // Hints
     renderStatus('rendering');
-    getImageUrl(url, function(imageUrl) {
+    
+    document.getElementById('text').value = url;
+    qrcode.makeCode(url);
 
-      // Display the QR Code image
-      var imageResult = document.getElementById('image-result');
-      imageResult.src = imageUrl;
-      imageResult.hidden = false;
-
-      // imageURL represents the dom element in popup.html
-      var imageURL = document.getElementById('image-url');
-      // Add a document Element
-      var a = document.createElement('a');
-      var linkText = document.createTextNode("QR Link");
-      a.appendChild(linkText);
-      a.href = imageUrl;
-      imageURL.appendChild(a);
-
-    }, function(errorMessage) {
-      renderStatus('Generate QR Code Image failed.' + errorMessage);
-    });
+    renderStatus('qrcode for current tab\'s url');
   });
 });
 
-var img_url = document.getElementById("image-result");
-img_url.addEventListener("load", function() {
-  renderStatus("Generated");
-});
+function makeCode () {    
+  var elText = document.getElementById("text");
+  if (!elText.value) {
+    alert("Input a text");
+    elText.focus();
+    return;
+  }
+  qrcode.makeCode(elText.value);
+  renderStatus('qrcode generated ');
+}
 
-//The chrome popup page's <a> is disabled.
-//We use window'EventListener to finish it.
-window.addEventListener('click',function(e){
-  if(e.target.href!==undefined)
-    chrome.tabs.create({url:e.target.href});
-})
+document.getElementById("text").addEventListener("blur", function(){ makeCode(); });
+document.getElementById("text").addEventListener("keydown", function(e){ if (e.keyCode == 13) { makeCode(); } });

@@ -3,7 +3,7 @@
 
   "name": "InstantQR",
   "description": "This extension shows a QR code image for the current page url",
-  "version": "1.0",
+  "version": "1.1",
 
   "icons": {
     "16":"icon16.png",
@@ -18,7 +18,6 @@
   },
 
   "permissions": [
-    "activeTab",
-    "http://qr.liantu.com/"
+    "activeTab"
   ]
 }
