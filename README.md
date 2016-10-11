@@ -1,18 +1,16 @@
-# InstantQR
-A chrome extension to generate the QR code image of you current tab's url.
+InstantQR
+=========
+
+Chrome extension to generate QR code image of current tab's url.
 
 InstantQR - 产生当前标签页的 URL 的 QR 图.
 
-![](src/icon48.png)
+![](extension/icon48.png)
 
-# API
-使用了以下开源项目的代码:
+###thanks to
++ [qrcodejs](https://github.com/davidshimjs/qrcodejs)
 
-[qrcodejs](https://github.com/davidshimjs/qrcodejs)
+###download
 
-# 下载
-
-[Chrome商店](https://chrome.google.com/webstore/detail/instantqr/fjhhlfjdpnfmamhlnbgejlkbpopijjbn?utm_source=chrome-ntp-icon)
-
-[crx文件](https://github.com/mxui/InstantQR/blob/master/download/InstantQR.crx)
-
++ [Chrome Store](https://chrome.google.com/webstore/detail/instantqr/fjhhlfjdpnfmamhlnbgejlkbpopijjbn?utm_source=chrome-ntp-icon)
++ [crx](https://github.com/mxui/InstantQR/blob/master/download/InstantQR.crx)
